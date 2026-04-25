@@ -4,7 +4,8 @@ import json, os, requests
 from zoneinfo import ZoneInfo
 from datetime import datetime, timedelta, timezone
 
-today = datetime.date.today()
+#today = datetime.date.today()
+today = date.today()
 # Custom format: Day/Month/Year
 todaysDate = today.strftime("%d-%m-%Y")
 
