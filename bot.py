@@ -5,10 +5,22 @@ from zoneinfo import ZoneInfo
 from datetime import datetime, timedelta, timezone
 
 #today = datetime.date.today()
-today = date.today()
+#today = date.today()
 # Custom format: Day/Month/Year
-todaysDate = today.strftime("%d-%m-%Y")
+#todaysDate = today.strftime("%d-%m-%Y")
 
+def utc_to_ist():
+    # Current UTC time
+    utc_now = datetime.now(timezone.utc)
+
+    # Convert to IST (UTC + 5:30)
+    ist_now = utc_now + timedelta(hours=5, minutes=30)
+
+    return ist_now
+
+# Example usage
+
+todaysDate = ist_time.date()
 
 BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
 CHAT_ID = "-1003971790115"
@@ -68,10 +80,10 @@ def process_jobs():
 
     # If no new jobs, post a heartbeat/status message
     if new_jobs == 0:
-        ist_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #ist_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # Get current UTC time
-        utc_now = datetime.datetime.now(timezone.utc)
-    
+        #utc_now = datetime.datetime.now(timezone.utc)
+        ist_time = utc_to_ist()
         # Add 5 hours 30 minutes
         ist_time = utc_now + timedelta(hours=5, minutes=30)
         send_message(f"🤖 Still waiting for companies to post vacancies.\nCarry on with your work — I’ll keep you posted! 😉 \n(last checked at {ist_time} IST)")
