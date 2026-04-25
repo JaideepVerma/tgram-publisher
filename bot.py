@@ -13,7 +13,7 @@ BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
 CHAT_ID = "-1003971790115"
 
 url = "https://raw.githubusercontent.com/JaideepVerma/openings/main/output/data.json"
-jobs = requests.get(url).json()
+global jobs = requests.get(url).json()
 
 def send_message(text):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
