@@ -73,8 +73,6 @@ def process_jobs():
     
         # Add 5 hours 30 minutes
         ist_time = utc_now + timedelta(hours=5, minutes=30)
-
-    return ist_now
         send_message(f"🤖 Still waiting for companies to post vacancies.\nCarry on with your work — I’ll keep you posted! 😉 \n(last checked at {ist_time} IST)")
 
 if __name__ == "__main__":
