@@ -52,11 +52,11 @@ def process_jobs():
     new_jobs=0
     sent_ids = load_sent()
     print((sent_ids))
-    print(todaysDate)
+    print('TodaysDate: ' ,todaysDate)
     for job in jobs:
         job_id = job["job_id"]  # must be unique per job
         job_company =job["company"]
-        if job_company+ ' ' + job_id not in sent_ids and job["company"] =="Morgan Stanley" and job["posting_date"] == "23-04-2026":
+        if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026":
             print('Loading...')
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             sent_ids.add(job_company+ ' ' + job_id)
@@ -68,6 +68,13 @@ def process_jobs():
     # If no new jobs, post a heartbeat/status message
     if new_jobs == 0:
         ist_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Get current UTC time
+        utc_now = datetime.now(timezone.utc)
+    
+        # Add 5 hours 30 minutes
+        ist_time = utc_now + timedelta(hours=5, minutes=30)
+
+    return ist_now
         send_message(f"🤖 Still waiting for companies to post vacancies.\nCarry on with your work — I’ll keep you posted! 😉 \n(last checked at {ist_time} IST)")
 
 if __name__ == "__main__":
