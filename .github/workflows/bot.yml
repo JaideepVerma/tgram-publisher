@@ -30,7 +30,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout main
+          git pull --rebase origin main
           git add sent.json
           git commit -m "Update sent.json" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push
+          git push origin main
