@@ -69,7 +69,7 @@ def process_jobs():
     if new_jobs == 0:
         ist_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # Get current UTC time
-        utc_now = datetime.now(timezone.utc)
+        utc_now = datetime.datetime.now(timezone.utc)
     
         # Add 5 hours 30 minutes
         ist_time = utc_now + timedelta(hours=5, minutes=30)
