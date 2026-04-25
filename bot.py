@@ -12,6 +12,8 @@ todaysDate = today.strftime("%d-%m-%Y")
 BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
 CHAT_ID = "-1003971790115"
 
+url = "https://raw.githubusercontent.com/JaideepVerma/openings/main/output/data.json"
+jobs = requests.get(url).json()
 
 def send_message(text):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -31,19 +33,19 @@ def send_job(company, role, location, link,postingdate):
     print(r.json())
 
 def load_sent():
-    if os.path.exists("./Scrapers/sent.json"):
-        with open("./Scrapers/sent.json") as f:
+    if os.path.exists("sent.json"):
+        with open("sent.json") as f:
             #print(set(json.load(f)))
             return set(json.load(f))
         
     return set()
 
 def save_sent(sent_ids):
-    with open("./Scrapers/sent.json", "w") as f:
+    with open("sent.json", "w") as f:
         json.dump(list(sent_ids), f)
 
 def process_jobs():
-    path=r"C:/Users/Jaideep/Desktop/Python/Scrapers/data.json"
+    path=jobs
     with open(path) as f:   # replace with path or fetch from GitHub
         jobs = json.load(f)
     new_jobs=0
