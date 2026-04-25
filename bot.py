@@ -19,7 +19,7 @@ def utc_to_ist():
     return ist_now
 
 # Example usage
-
+ist_time = utc_to_ist()
 todaysDate = ist_time.date()
 
 BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
