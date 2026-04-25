@@ -86,6 +86,7 @@ def process_jobs():
         utc_now = datetime.now(timezone.utc)
         # Add 5 hours 30 minutes
         ist_time = utc_now + timedelta(hours=5, minutes=30)
+        ist_time=ist_time.strftime("%Y-%m-%d %H:%M:%S")
         send_message(f"🤖 Still waiting for companies to post vacancies.\nCarry on with your work — I’ll keep you posted! 😉 \n(last checked at {ist_time} IST)")
 
 if __name__ == "__main__":
