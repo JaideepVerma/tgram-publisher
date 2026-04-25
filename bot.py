@@ -12,7 +12,6 @@ from datetime import datetime, timedelta, timezone
 def utc_to_ist():
     # Current UTC time
     utc_now = datetime.now(timezone.utc)
-
     # Convert to IST (UTC + 5:30)
     ist_now = utc_now + timedelta(hours=5, minutes=30)
 
@@ -84,6 +83,7 @@ def process_jobs():
         # Get current UTC time
         #utc_now = datetime.datetime.now(timezone.utc)
         ist_time = utc_to_ist()
+        utc_now = datetime.now(timezone.utc)
         # Add 5 hours 30 minutes
         ist_time = utc_now + timedelta(hours=5, minutes=30)
         send_message(f"🤖 Still waiting for companies to post vacancies.\nCarry on with your work — I’ll keep you posted! 😉 \n(last checked at {ist_time} IST)")
