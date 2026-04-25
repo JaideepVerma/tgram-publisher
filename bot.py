@@ -46,9 +46,9 @@ def process_jobs():
     
     url = "https://raw.githubusercontent.com/JaideepVerma/openings/main/output/data.json"
     jobs = requests.get(url).json()
-    path=jobs
-    with open(path) as f:   # replace with path or fetch from GitHub
-        jobs = json.load(f)
+    #path=jobs
+    #with open(path) as f:   # replace with path or fetch from GitHub
+    #    jobs = json.load(f)
     new_jobs=0
     sent_ids = load_sent()
     print((sent_ids))
