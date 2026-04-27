@@ -80,13 +80,14 @@ def process_jobs():
         #print(job_company)
         print(job_company,' ---> ' , job_company+ ' ' + job_id not in sent_ids , job["posting_date"] == str(todaysDate) )
         
-        if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
+        if job_company+ ' ' + job_id+' '+job["posting_date"] not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
             print('Loading...')
             print(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
-            sent_ids.add(job_company+ ' ' + job_id)
+            sent_ids.add(job_company+ ' ' + job_id,' ',job["posting_date"])
             new_jobs +=1
             with open("jobs.log", "a") as log:
+                
                 log.write(f"Sent {job_company+ ' ' + job_id} at {datetime.now()}\n")
     print('<--------------  ',len(sent_ids), 'Posted to Telegram','---------------->')
     save_sent(sent_ids)
