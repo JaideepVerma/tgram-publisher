@@ -34,6 +34,7 @@ def send_message(text):
 
 def send_job(company, role, location, link,postingdate):
     message = f"*{company}* \nHiring for *{role}* at *{location}* \n[Apply Link]: {link} \nPosted at : {postingdate}"
+    print(message)
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": CHAT_ID,
@@ -75,6 +76,7 @@ def process_jobs():
         
         if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
             print('Loading...')
+            print(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             sent_ids.add(job_company+ ' ' + job_id)
             new_jobs +=1
