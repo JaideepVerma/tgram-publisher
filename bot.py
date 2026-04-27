@@ -68,13 +68,14 @@ def process_jobs():
     for job in jobs:
         job_id = job["job_id"]  # must be unique per job
         job_company =job["company"]
-        if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026":
+        if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
             print('Loading...')
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             sent_ids.add(job_company+ ' ' + job_id)
             new_jobs +=1
             with open("jobs.log", "a") as log:
                 log.write(f"Sent {job_company+ ' ' + job_id} at {datetime.datetime.now()}\n")
+    print('<--------------  'len(sent_ids), 'Posted to Telegram','---------------->')
     save_sent(sent_ids)
 
     # If no new jobs, post a heartbeat/status message
