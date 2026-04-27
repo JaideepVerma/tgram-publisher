@@ -70,8 +70,8 @@ def process_jobs():
     for job in jobs:
         job_id = job["job_id"]  # must be unique per job
         job_company =job["company"]
-        print(job_company)
-        print(job_company+ ' ' + job_id not in sent_ids , job["posting_date"] == str(todaysDate) )
+        #print(job_company)
+        print(job_company,' ---> ' , job_company+ ' ' + job_id not in sent_ids , job["posting_date"] == str(todaysDate) )
         
         if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
             print('Loading...')
