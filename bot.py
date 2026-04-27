@@ -75,7 +75,7 @@ def process_jobs():
             new_jobs +=1
             with open("jobs.log", "a") as log:
                 log.write(f"Sent {job_company+ ' ' + job_id} at {datetime.datetime.now()}\n")
-    print('<--------------  'len(sent_ids), 'Posted to Telegram','---------------->')
+    print('<--------------  ',len(sent_ids), 'Posted to Telegram','---------------->')
     save_sent(sent_ids)
 
     # If no new jobs, post a heartbeat/status message
