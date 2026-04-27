@@ -20,6 +20,7 @@ def utc_to_ist():
 # Example usage
 ist_time = utc_to_ist()
 todaysDate = ist_time.date()
+todaysDate = todaysDate.strftime("%d-%m-%Y")
 
 BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
 CHAT_ID = "-1003971790115"
