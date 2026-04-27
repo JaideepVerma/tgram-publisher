@@ -33,13 +33,19 @@ def send_message(text):
     return r.json()
 
 def send_job(company, role, location, link,postingdate):
-    message = f"*{company}* \nHiring for *{role}* at *{location}* \n[Apply Link]: {link} \nPosted at : {postingdate}"
+    message = f" TESTmsg *{company}* \nHiring for *{role}* at *{location}* \n[Apply Link]: {link} \nPosted at : {postingdate}"
+    message = (
+    f"TESTmsg <b>{company}</b><br>"
+    f"Hiring for <b>{role}</b> at <b>{location}</b><br>"
+    f'<a href="{link}">Apply Link</a><br>'
+    f"Posted at : {postingdate}"
+)
     print(message)
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": CHAT_ID,
         "text": message,
-        "parse_mode": "Markdown"  # enables bold and links
+        "parse_mode": "HTML"  # enables bold and links
     }
     r = requests.post(url, data=payload)
     print(r.json())
