@@ -84,7 +84,7 @@ def process_jobs():
             print('Loading...')
             print(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
-            sent_ids.add(job_company+ ' ' + job_id,' ',job["posting_date"])
+            sent_ids.add(job_company+ ' ' + job_id+' '+job["posting_date"])
             new_jobs +=1
             with open("jobs.log", "a") as log:
                 
