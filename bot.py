@@ -33,7 +33,7 @@ def send_message(text):
     return r.json()
 
 def send_job(company, role, location, link,postingdate):
-    message = f" TESTmsg *{company}* \nHiring for *{role}* at *{location}* \n[Apply Link]: {link} \nPosted at : {postingdate}"
+    #message = f" TESTmsg *{company}* \nHiring for *{role}* at *{location}* \n[Apply Link]: {link} \nPosted at : {postingdate}"
     message = (
     f"TESTmsg <b>{company}</b><br>"
     f"Hiring for <b>{role}</b> at <b>{location}</b><br>"
