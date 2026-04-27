@@ -65,9 +65,11 @@ def process_jobs():
     sent_ids = load_sent()
     print((sent_ids))
     print('TodaysDate: ' ,todaysDate)
+    print('Total jobs in data: ', len(jobs))
     for job in jobs:
         job_id = job["job_id"]  # must be unique per job
         job_company =job["company"]
+        print(job_company+ ' ' + job_id not in sent_ids , job["posting_date"] == str(todaysDate) )
         if job_company+ ' ' + job_id not in sent_ids and job["posting_date"] == str(todaysDate): #"23-04-2026": 
             print('Loading...')
             send_job(job["company"], job["role"], job["location"], job["apply_link"],job["posting_date"])
