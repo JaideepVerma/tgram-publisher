@@ -28,17 +28,30 @@ jobs:
 
       - name: Commit sent.json
         run: |
-
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Stage and commit changes if any
           git add sent.json
           git commit -m "Update sent.json" || echo "No changes to commit"
 
+          # Pull with merge instead of rebase
+          git pull origin main --no-rebase || true
+
+          # Push back
+          git push origin main
+      #- name: Commit sent.json
+      #  run: |
+
+          #git config --global user.name "github-actions[bot]"
+          #git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage and commit changes if any
+          #git add sent.json
+          #git commit -m "Update sent.json" || echo "No changes to commit"
+
           # Rebase onto latest remote main
-          git pull --rebase origin main || echo "No remote changes to rebase"
+          #git pull --rebase origin main || echo "No remote changes to rebase"
 
           # Push back to GitHub
-          git push origin main
+          #git push origin main
           
