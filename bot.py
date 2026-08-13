@@ -22,7 +22,7 @@ ist_time = utc_to_ist()
 todaysDate = ist_time.date()
 todaysDate = todaysDate.strftime("%d-%m-%Y")
 
-BOT_TOKEN = "8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
+BOT_TOKEN = "8241240984:AAFrXwR2WSE66FY14kB0sVL1H1OyduKgZO4"#"8669021019:AAFg8lSIG0hmPOzC_O133VwAZ92JB7LyLCE"
 CHAT_ID = "-1003971790115"
 
 
